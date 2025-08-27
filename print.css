@@ -1,0 +1,439 @@
+/* CSS de Impressão A4 */
+@media print {
+    /* Reset para impressão */
+    * {
+        -webkit-print-color-adjust: exact !important;
+        color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+    
+    /* Configuração da página */
+    @page {
+        size: A4;
+        margin: 1.5cm 2cm;
+        orphans: 3;
+        widows: 3;
+    }
+    
+    /* Configurações gerais */
+    body {
+        font-size: 12pt !important;
+        line-height: 1.4 !important;
+        color: #000 !important;
+        background: white !important;
+    }
+    
+    /* Ocultar elementos não necessários na impressão */
+    .fixed-cta,
+    .download-pdf-btn,
+    .hero-cta,
+    .qr-container,
+    #qr-code,
+    .final-cta-buttons,
+    .cta-primary,
+    .cta-button,
+    #hero-whatsapp,
+    #final-whatsapp {
+        display: none !important;
+    }
+    
+    /* Container principal */
+    .container {
+        max-width: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    
+    /* Títulos */
+    .hero-title {
+        font-size: 24pt !important;
+        color: #111827 !important;
+        text-align: center;
+        margin-bottom: 8pt !important;
+        page-break-after: avoid;
+    }
+    
+    .hero-subtitle {
+        font-size: 18pt !important;
+        color: #F39C12 !important;
+        text-align: center;
+        margin-bottom: 12pt !important;
+        page-break-after: avoid;
+    }
+    
+    .section-title {
+        font-size: 16pt !important;
+        color: #111827 !important;
+        margin-top: 20pt !important;
+        margin-bottom: 12pt !important;
+        page-break-after: avoid;
+        border-bottom: 2pt solid #0FA3B1;
+        padding-bottom: 4pt;
+    }
+    
+    .section-title::after {
+        display: none;
+    }
+    
+    /* Seções */
+    section {
+        page-break-inside: avoid;
+        margin-bottom: 20pt !important;
+        padding: 0 !important;
+    }
+    
+    .hero-section {
+        background: white !important;
+        color: #111827 !important;
+        padding: 20pt 0 !important;
+        min-height: auto !important;
+        page-break-after: always;
+    }
+    
+    .hero-section::before {
+        display: none;
+    }
+    
+    .hero-description {
+        font-size: 14pt !important;
+        color: #374151 !important;
+        margin-bottom: 0 !important;
+        text-align: center;
+    }
+    
+    /* Cards e grids */
+    .summary-grid,
+    .insights-grid,
+    .competition-grid,
+    .keywords-clusters,
+    .risks-grid,
+    .metrics-grid {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 12pt !important;
+        page-break-inside: avoid;
+    }
+    
+    .budget-plans {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 12pt !important;
+    }
+    
+    .summary-card,
+    .insight-card,
+    .competitor-card,
+    .keyword-cluster,
+    .risk-card,
+    .metric-card,
+    .budget-plan {
+        background: white !important;
+        border: 1pt solid #e5e7eb !important;
+        padding: 12pt !important;
+        margin-bottom: 8pt !important;
+        page-break-inside: avoid;
+        box-shadow: none !important;
+    }
+    
+    /* Títulos dos cards */
+    .summary-card h3,
+    .insight-card h3,
+    .competitor-card h3,
+    .keyword-cluster h3,
+    .risk-card h3,
+    .metric-card h3,
+    .budget-plan h3 {
+        font-size: 14pt !important;
+        color: #111827 !important;
+        margin-bottom: 6pt !important;
+        page-break-after: avoid;
+    }
+    
+    /* Texto dos cards */
+    .summary-card p,
+    .insight-card p,
+    .competitor-card p,
+    .risk-card p,
+    .metric-card p {
+        font-size: 12pt !important;
+        color: #374151 !important;
+        line-height: 1.3 !important;
+    }
+    
+    /* Ícones - converter para texto */
+    .summary-icon,
+    .insight-icon {
+        font-size: 16pt !important;
+        margin-bottom: 6pt !important;
+    }
+    
+    /* Timeline */
+    .timeline {
+        page-break-inside: avoid;
+    }
+    
+    .timeline::before {
+        background: #0FA3B1 !important;
+    }
+    
+    .timeline-item {
+        margin-bottom: 12pt !important;
+        page-break-inside: avoid;
+    }
+    
+    .timeline-marker {
+        background: #F39C12 !important;
+        color: white !important;
+        width: 30pt !important;
+        height: 30pt !important;
+        font-size: 10pt !important;
+    }
+    
+    .timeline-content {
+        background: white !important;
+        border: 1pt solid #e5e7eb !important;
+        padding: 8pt !important;
+        box-shadow: none !important;
+    }
+    
+    .timeline-content h3 {
+        font-size: 13pt !important;
+        color: #111827 !important;
+        margin-bottom: 4pt !important;
+    }
+    
+    .timeline-content p {
+        font-size: 11pt !important;
+        color: #374151 !important;
+    }
+    
+    /* Tabelas */
+    .kpi-table {
+        page-break-inside: avoid;
+        border: 1pt solid #e5e7eb !important;
+        background: white !important;
+    }
+    
+    .kpi-table table {
+        width: 100% !important;
+    }
+    
+    .kpi-table th {
+        background: #f8fafc !important;
+        color: #111827 !important;
+        font-size: 11pt !important;
+        padding: 6pt !important;
+        border-bottom: 1pt solid #e5e7eb !important;
+    }
+    
+    .kpi-table td {
+        font-size: 11pt !important;
+        padding: 6pt !important;
+        border-bottom: 1pt solid #f1f5f9 !important;
+        color: #374151 !important;
+    }
+    
+    .kpi-table tr.highlight td {
+        background: #f0fdff !important;
+        color: #0FA3B1 !important;
+        font-weight: bold !important;
+    }
+    
+    /* Keywords */
+    .keywords {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 4pt !important;
+    }
+    
+    .keyword {
+        background: #f8fafc !important;
+        color: #111827 !important;
+        padding: 3pt 8pt !important;
+        border: 1pt solid #e5e7eb !important;
+        font-size: 10pt !important;
+        display: inline-block;
+    }
+    
+    /* Preços */
+    .plan-price {
+        font-size: 18pt !important;
+        color: #F39C12 !important;
+        font-weight: bold !important;
+    }
+    
+    .plan-price span {
+        font-size: 12pt !important;
+        color: #374151 !important;
+    }
+    
+    /* Features list */
+    .plan-features {
+        list-style: none !important;
+        padding: 0 !important;
+    }
+    
+    .plan-features li {
+        font-size: 11pt !important;
+        color: #374151 !important;
+        padding: 2pt 0 !important;
+        padding-left: 12pt !important;
+    }
+    
+    .plan-features li::before {
+        content: "✓ " !important;
+        color: #0FA3B1 !important;
+        font-weight: bold !important;
+        margin-left: -12pt !important;
+    }
+    
+    /* Estatísticas dos concorrentes */
+    .competitor-stats {
+        font-size: 11pt !important;
+        margin-bottom: 6pt !important;
+    }
+    
+    .rating {
+        color: #F39C12 !important;
+        font-weight: bold !important;
+    }
+    
+    .presence {
+        color: #374151 !important;
+    }
+    
+    .competitor-weakness {
+        color: #dc2626 !important;
+        font-style: italic !important;
+        font-size: 11pt !important;
+    }
+    
+    .competitor-strength {
+        color: #059669 !important;
+        font-weight: bold !important;
+        font-size: 11pt !important;
+    }
+    
+    /* Níveis de risco */
+    .risk-level {
+        font-size: 10pt !important;
+        font-weight: bold !important;
+        padding: 2pt 6pt !important;
+        border: 1pt solid !important;
+        display: inline-block;
+        margin-bottom: 6pt !important;
+    }
+    
+    .risk-card.high .risk-level {
+        color: #dc2626 !important;
+        border-color: #dc2626 !important;
+    }
+    
+    .risk-card.medium .risk-level {
+        color: #F39C12 !important;
+        border-color: #F39C12 !important;
+    }
+    
+    .risk-card.low .risk-level {
+        color: #059669 !important;
+        border-color: #059669 !important;
+    }
+    
+    /* Métricas */
+    .metric-example,
+    .metric-target,
+    .metric-schedule,
+    .metric-tools {
+        background: #f8fafc !important;
+        border: 1pt solid #e5e7eb !important;
+        padding: 6pt !important;
+        font-family: "Courier New", monospace !important;
+        font-size: 10pt !important;
+        color: #111827 !important;
+        margin-top: 6pt !important;
+    }
+    
+    /* Footer */
+    .footer {
+        background: white !important;
+        color: #374151 !important;
+        border-top: 1pt solid #e5e7eb !important;
+        padding: 12pt 0 !important;
+        font-size: 10pt !important;
+        text-align: center;
+        page-break-inside: avoid;
+    }
+    
+    /* Gráficos - ocultar canvas e mostrar dados alternativos */
+    canvas {
+        display: none !important;
+    }
+    
+    .chart-container {
+        background: white !important;
+        border: 1pt solid #e5e7eb !important;
+        padding: 12pt !important;
+        text-align: center;
+    }
+    
+    .chart-container::after {
+        content: "[Gráfico - dados disponíveis na versão digital]";
+        font-style: italic;
+        color: #6b7280;
+        font-size: 11pt;
+    }
+    
+    /* Quebras de página estratégicas */
+    .summary-section {
+        page-break-after: avoid;
+    }
+    
+    .budget-section {
+        page-break-before: always;
+    }
+    
+    .final-cta-section {
+        page-break-before: always;
+        background: white !important;
+        color: #111827 !important;
+        text-align: center;
+        padding: 20pt 0 !important;
+    }
+    
+    .final-cta-content h2 {
+        font-size: 20pt !important;
+        color: #111827 !important;
+        margin-bottom: 12pt !important;
+    }
+    
+    .final-cta-text {
+        font-size: 14pt !important;
+        color: #374151 !important;
+        margin-bottom: 0 !important;
+    }
+    
+    /* Garantir que elementos importantes não sejam cortados */
+    h1, h2, h3, h4, h5, h6 {
+        page-break-after: avoid;
+    }
+    
+    p, li {
+        orphans: 2;
+        widows: 2;
+    }
+    
+    /* Ajustes para elementos específicos */
+    .budget-plan.featured::before {
+        display: none !important;
+    }
+    
+    .funnel-container {
+        display: block !important;
+    }
+    
+    .chart-container-small {
+        height: auto !important;
+        min-height: 60pt !important;
+    }
+}
+

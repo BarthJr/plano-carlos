@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Plano de Marketing Local para Pedreiro Carlos - Itanhaém/SP. Estratégias comprovadas para aumentar pedidos qualificados e construir reputação 5 estrelas.">
+    <meta name="keywords" content="pedreiro itanhaém, marketing local, construção civil, reformas, pedreiro carlos">
+    <title>Plano de Marketing Local - Pedreiro Carlos | Itanhaém/SP</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏗️</text></svg>">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- QR Code Library -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+</head>
+<body>
+    <!-- CTA Fixo -->
+    <div id="fixed-cta" class="fixed-cta">
+        <a href="#" id="whatsapp-btn" class="cta-button">
+            <span class="cta-icon">📱</span>
+            <span class="cta-text">Falar no WhatsApp</span>
+        </a>
+    </div>
+
+    <!-- Botão Download PDF -->
+    <button id="download-pdf" class="download-pdf-btn" onclick="window.print()">
+        <span>📄</span> Baixar PDF
+    </button>
+
+    <main class="container">
+        <!-- 1. Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Plano de Marketing Local</h1>
+                <h2 class="hero-subtitle">Pedreiro Carlos - Itanhaém/SP</h2>
+                <p class="hero-description">
+                    Estratégias comprovadas para aumentar pedidos qualificados, 
+                    construir reputação 5 estrelas e otimizar sua verba de marketing
+                </p>
+                <div class="hero-cta">
+                    <a href="#" id="hero-whatsapp" class="cta-primary">
+                        Implementar em 7 dias
+                    </a>
+                    <div class="qr-container">
+                        <canvas id="qr-code"></canvas>
+                        <p class="qr-label">Escaneie para WhatsApp</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Sumário Executivo -->
+        <section id="sumario" class="summary-section">
+            <h2 class="section-title">Sumário Executivo</h2>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <div class="summary-icon">🎯</div>
+                    <h3>Canais Prioritários</h3>
+                    <p>Google Perfil, WhatsApp Business, Programa de Indicações e Redes Sociais</p>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-icon">📈</div>
+                    <h3>Metas 90 Dias</h3>
+                    <p>100 leads qualificados/mês, 10 obras fechadas, reputação 4.7+ estrelas</p>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-icon">💰</div>
+                    <h3>Investimento</h3>
+                    <p>A partir de R$ 450/mês + custos pontuais de setup e criação</p>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-icon">🚀</div>
+                    <h3>Próximos Passos</h3>
+                    <p>Setup Google Perfil, kit indicação, roteiros WhatsApp, primeiras campanhas</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Onde Procuram Primeiro -->
+        <section id="onde-procuram" class="chart-section">
+            <h2 class="section-title">Onde Seus Clientes Procuram Primeiro (%)</h2>
+            <div class="chart-container">
+                <canvas id="onde-procuram-chart"></canvas>
+            </div>
+        </section>
+
+        <!-- 4. Confiança por Canal -->
+        <section id="confianca" class="chart-section">
+            <h2 class="section-title">Nível de Confiança por Canal (1-10)</h2>
+            <div class="chart-container">
+                <canvas id="confianca-chart"></canvas>
+            </div>
+        </section>
+
+        <!-- 5. Conversão por Canal -->
+        <section id="conversao" class="chart-section">
+            <h2 class="section-title">Taxa de Conversão por Canal (%)</h2>
+            <div class="chart-container">
+                <canvas id="conversao-chart"></canvas>
+            </div>
+        </section>
+
+        <!-- 6. CPL por Canal -->
+        <section id="cpl" class="chart-section">
+            <h2 class="section-title">Custo por Lead (CPL) por Canal (R$)</h2>
+            <div class="chart-container">
+                <canvas id="cpl-chart"></canvas>
+            </div>
+        </section>
+
+        <!-- 7. Insights Práticos -->
+        <section id="insights" class="insights-section">
+            <h2 class="section-title">Insights Práticos</h2>
+            <div class="insights-grid">
+                <div class="insight-card">
+                    <div class="insight-icon">🏆</div>
+                    <h3>Indicações Dominam</h3>
+                    <p>50% dos clientes chegam por indicação. Implemente programa estruturado com incentivos e follow-up automatizado.</p>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-icon">🔍</div>
+                    <h3>Google é Decisivo</h3>
+                    <p>25% buscam no Google primeiro. Perfil otimizado com fotos, reviews e posts regulares é fundamental.</p>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-icon">💬</div>
+                    <h3>WhatsApp Converte</h3>
+                    <p>30% de conversão via WhatsApp. Resposta rápida (<10min) e roteiros estruturados são essenciais.</p>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-icon">⚡</div>
+                    <h3>Velocidade Importa</h3>
+                    <p>Clientes decidem rápido. SLA de resposta <10min aumenta conversão em 40%.</p>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-icon">📱</div>
+                    <h3>Mobile First</h3>
+                    <p>80% das buscas são mobile. Perfis e anúncios devem ser otimizados para celular.</p>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-icon">⭐</div>
+                    <h3>Reviews Vendem</h3>
+                    <p>Reputação 4.7+ aumenta conversão em 60%. Processo estruturado de coleta é obrigatório.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. Concorrência Local -->
+        <section id="concorrencia" class="competition-section">
+            <h2 class="section-title">Análise da Concorrência Local</h2>
+            <div class="competition-grid">
+                <div class="competitor-card">
+                    <h3>João Pedreiro</h3>
+                    <div class="competitor-stats">
+                        <span class="rating">⭐ 4.2 (28 reviews)</span>
+                        <span class="presence">Google + Facebook</span>
+                    </div>
+                    <p class="competitor-weakness">Resposta lenta, fotos antigas</p>
+                </div>
+                <div class="competitor-card">
+                    <h3>Construções Silva</h3>
+                    <div class="competitor-stats">
+                        <span class="rating">⭐ 4.5 (15 reviews)</span>
+                        <span class="presence">Apenas Google</span>
+                    </div>
+                    <p class="competitor-weakness">Poucos reviews, sem WhatsApp Business</p>
+                </div>
+                <div class="competitor-card">
+                    <h3>Reformas Litoral</h3>
+                    <div class="competitor-stats">
+                        <span class="rating">⭐ 3.8 (42 reviews)</span>
+                        <span class="presence">Google + Instagram</span>
+                    </div>
+                    <p class="competitor-weakness">Reviews negativos recentes</p>
+                </div>
+                <div class="competitor-card opportunity">
+                    <h3>Oportunidade Carlos</h3>
+                    <div class="competitor-stats">
+                        <span class="rating">🎯 Meta: 4.7+ (50+ reviews)</span>
+                        <span class="presence">Presença completa</span>
+                    </div>
+                    <p class="competitor-strength">Resposta <10min, conteúdo regular, programa indicação</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. Palavras-chave & Anúncios -->
+        <section id="keywords" class="keywords-section">
+            <h2 class="section-title">Palavras-chave & Estratégia de Anúncios</h2>
+            <div class="keywords-clusters">
+                <div class="keyword-cluster">
+                    <h3>Serviços Locais</h3>
+                    <div class="keywords">
+                        <span class="keyword">pedreiro itanhaém</span>
+                        <span class="keyword">construção itanhaém</span>
+                        <span class="keyword">reforma itanhaém</span>
+                        <span class="keyword">pedreiro mongaguá</span>
+                    </div>
+                </div>
+                <div class="keyword-cluster">
+                    <h3>Serviços Específicos</h3>
+                    <div class="keywords">
+                        <span class="keyword">construir muro</span>
+                        <span class="keyword">reforma banheiro</span>
+                        <span class="keyword">ampliar casa</span>
+                        <span class="keyword">construir churrasqueira</span>
+                    </div>
+                </div>
+                <div class="keyword-cluster">
+                    <h3>Urgência</h3>
+                    <div class="keywords">
+                        <span class="keyword">pedreiro urgente</span>
+                        <span class="keyword">reforma rápida</span>
+                        <span class="keyword">pedreiro hoje</span>
+                        <span class="keyword">orçamento grátis</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. Plano de 90 Dias -->
+        <section id="timeline" class="timeline-section">
+            <h2 class="section-title">Plano de Implementação - 90 Dias</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker">S1</div>
+                    <div class="timeline-content">
+                        <h3>Setup Inicial</h3>
+                        <p>Google Perfil otimizado, WhatsApp Business, kit visual básico</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">S2</div>
+                    <div class="timeline-content">
+                        <h3>Programa Indicação</h3>
+                        <p>Estrutura de incentivos, materiais de divulgação, processo de follow-up</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">S3</div>
+                    <div class="timeline-content">
+                        <h3>Conteúdo & Reviews</h3>
+                        <p>Posts regulares, coleta estruturada de avaliações, fotos profissionais</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">S4</div>
+                    <div class="timeline-content">
+                        <h3>Primeiras Campanhas</h3>
+                        <p>Anúncios Google e Facebook, otimização de conversão</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">S6</div>
+                    <div class="timeline-content">
+                        <h3>Análise & Ajustes</h3>
+                        <p>Métricas, otimizações, expansão de canais eficazes</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">S8</div>
+                    <div class="timeline-content">
+                        <h3>Automações</h3>
+                        <p>CRM básico, automação WhatsApp, relatórios mensais</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">S10</div>
+                    <div class="timeline-content">
+                        <h3>Expansão</h3>
+                        <p>Novos canais, parcerias locais, otimização avançada</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">S12</div>
+                    <div class="timeline-content">
+                        <h3>Consolidação</h3>
+                        <p>Processo maduro, resultados consistentes, planejamento futuro</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 11. Orçamento Mensal -->
+        <section id="orcamento" class="budget-section">
+            <h2 class="section-title">Planos de Investimento Mensal</h2>
+            
+            <div class="budget-plans">
+                <div class="budget-plan">
+                    <h3>Solo Starter</h3>
+                    <div class="plan-price">R$ 450<span>/mês</span></div>
+                    <div class="chart-container-small">
+                        <canvas id="budget-solo-chart"></canvas>
+                    </div>
+                    <ul class="plan-features">
+                        <li>Google Meu Negócio (30%)</li>
+                        <li>Redes Sociais (35%)</li>
+                        <li>WhatsApp Business (20%)</li>
+                        <li>Comunidades Locais (10%)</li>
+                        <li>Reserva Emergencial (5%)</li>
+                    </ul>
+                </div>
+
+                <div class="budget-plan featured">
+                    <h3>Growth Accelerator</h3>
+                    <div class="plan-price">R$ 1.200<span>/mês</span></div>
+                    <div class="chart-container-small">
+                        <canvas id="budget-growth-chart"></canvas>
+                    </div>
+                    <ul class="plan-features">
+                        <li>Anúncios Pagos (25%)</li>
+                        <li>Redes Sociais (35%)</li>
+                        <li>GMB + SEO (20%)</li>
+                        <li>Site/Landing (10%)</li>
+                        <li>Reserva Emergencial (10%)</li>
+                    </ul>
+                </div>
+
+                <div class="budget-plan">
+                    <h3>Dominance</h3>
+                    <div class="plan-price">R$ 2.000<span>/mês</span></div>
+                    <div class="chart-container-small">
+                        <canvas id="budget-dominance-chart"></canvas>
+                    </div>
+                    <ul class="plan-features">
+                        <li>Anúncios Pagos (50%)</li>
+                        <li>Redes Sociais (25%)</li>
+                        <li>SEO Avançado (15%)</li>
+                        <li>CRM/Automação (5%)</li>
+                        <li>Reserva Emergencial (5%)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="one-time-costs">
+                <h3>Custos Pontuais de Setup</h3>
+                <div class="chart-container">
+                    <canvas id="setup-costs-chart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- 12. Funil & KPIs -->
+        <section id="funil" class="funnel-section">
+            <h2 class="section-title">Funil de Vendas & KPIs Esperados</h2>
+            
+            <div class="funnel-container">
+                <div class="chart-container">
+                    <canvas id="funnel-chart"></canvas>
+                </div>
+                
+                <div class="kpi-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Etapa</th>
+                                <th>Quantidade</th>
+                                <th>Taxa Conversão</th>
+                                <th>Meta Mensal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Leads Totais</td>
+                                <td>100</td>
+                                <td>-</td>
+                                <td>100 leads</td>
+                            </tr>
+                            <tr>
+                                <td>Leads Qualificados</td>
+                                <td>50</td>
+                                <td>50%</td>
+                                <td>50 qualificados</td>
+                            </tr>
+                            <tr>
+                                <td>Visitas Agendadas</td>
+                                <td>45</td>
+                                <td>90%</td>
+                                <td>45 visitas</td>
+                            </tr>
+                            <tr>
+                                <td>Propostas Enviadas</td>
+                                <td>45</td>
+                                <td>100%</td>
+                                <td>45 propostas</td>
+                            </tr>
+                            <tr>
+                                <td>Fechamentos</td>
+                                <td>10</td>
+                                <td>22%</td>
+                                <td>10 obras</td>
+                            </tr>
+                            <tr>
+                                <td>Obras Concluídas</td>
+                                <td>9</td>
+                                <td>90%</td>
+                                <td>9 entregas</td>
+                            </tr>
+                            <tr class="highlight">
+                                <td>Reviews Coletados</td>
+                                <td>20</td>
+                                <td>-</td>
+                                <td>Nota ≥4.7</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- 13. Riscos & Sazonalidade -->
+        <section id="riscos" class="risks-section">
+            <h2 class="section-title">Gestão de Riscos & Sazonalidade</h2>
+            <div class="risks-grid">
+                <div class="risk-card high">
+                    <div class="risk-level">Alto</div>
+                    <h3>Dependência de Indicações</h3>
+                    <p>Diversificar canais para reduzir dependência. Meta: máximo 40% de um canal.</p>
+                </div>
+                <div class="risk-card medium">
+                    <div class="risk-level">Médio</div>
+                    <h3>Sazonalidade Verão</h3>
+                    <p>Dezembro-Fevereiro: +30% demanda. Preparar equipe e estoque antecipadamente.</p>
+                </div>
+                <div class="risk-card medium">
+                    <div class="risk-level">Médio</div>
+                    <h3>Concorrência Desleal</h3>
+                    <p>Preços muito baixos podem indicar qualidade questionável. Focar em valor.</p>
+                </div>
+                <div class="risk-card low">
+                    <div class="risk-level">Baixo</div>
+                    <h3>Mudanças Algoritmo</h3>
+                    <p>Google atualiza algoritmos. Manter práticas éticas e diversificar canais.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 14. Métricas & Instrumentação -->
+        <section id="metricas" class="metrics-section">
+            <h2 class="section-title">Métricas & Instrumentação</h2>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <h3>Rastreamento UTM</h3>
+                    <p>Todos os links com parâmetros UTM para identificar origem exata dos leads</p>
+                    <div class="metric-example">
+                        utm_source=google | utm_medium=cpc | utm_campaign=pedreiro_itanhaem
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <h3>SLA de Resposta</h3>
+                    <p>Tempo máximo de resposta: <strong>10 minutos</strong></p>
+                    <div class="metric-target">
+                        Meta: 95% das mensagens respondidas em até 10min
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <h3>Revisões Quinzenais</h3>
+                    <p>Reunião a cada 15 dias para análise de métricas e otimizações</p>
+                    <div class="metric-schedule">
+                        Próximas: 15/01, 30/01, 15/02, 28/02
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <h3>Dashboard em Tempo Real</h3>
+                    <p>Acompanhamento diário de leads, conversões e ROI por canal</p>
+                    <div class="metric-tools">
+                        Google Analytics + WhatsApp Business API + CRM
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 15. CTA Final -->
+        <section id="cta-final" class="final-cta-section">
+            <div class="final-cta-content">
+                <h2>Vamos Começar?</h2>
+                <p class="final-cta-text">
+                    Implantação completa em 7 dias: Google Perfil otimizado, kit de indicação estruturado, 
+                    roteiros WhatsApp profissionais e suas primeiras campanhas no ar.
+                </p>
+                <div class="final-cta-buttons">
+                    <a href="#" id="final-whatsapp" class="cta-primary large">
+                        🚀 Implementar Agora
+                    </a>
+                    <div class="cta-guarantee">
+                        <span class="guarantee-icon">✅</span>
+                        <span>Garantia de implementação em 7 dias</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Plano de Marketing Local - Pedreiro Carlos | Itanhaém/SP</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/charts.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
+
