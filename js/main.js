@@ -79,9 +79,28 @@ class MarketingPlanWebsite {
     // Generate QR Code for WhatsApp
     generateQRCode() {
         const qrCanvas = document.getElementById('qr-code');
-        if (!qrCanvas || typeof QRCode === 'undefined') return;
-
         const whatsappUrl = this.getWhatsAppURL();
+
+        if (typeof QRCode === 'undefined') {
+            console.error('QRCode library is not loaded.');
+            if (qrCanvas) {
+                // Fallback: show text
+                qrCanvas.style.display = 'none';
+                const fallback = document.createElement('div');
+                fallback.innerHTML = `
+                    <div style="background: white; padding: 15px; border-radius: 8px; text-align: center;">
+                        <p style="margin: 0; font-size: 12px; color: #374151;">
+                            QR Code indisponível (biblioteca não carregou).<br>
+                            <a href="${whatsappUrl}" target="_blank" style="color: #0FA3B1;">Clique aqui para WhatsApp</a>
+                        </p>
+                    </div>
+                `;
+                qrCanvas.parentNode.appendChild(fallback);
+            }
+            return;
+        }
+
+        if (!qrCanvas) return;
         
         QRCode.toCanvas(qrCanvas, whatsappUrl, {
             width: CONFIG.qrCodeSize,
