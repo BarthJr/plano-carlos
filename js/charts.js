@@ -1,9 +1,9 @@
-// Configurações globais do Chart.js
+// Global Chart.js settings
 Chart.defaults.font.family = "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif";
 Chart.defaults.font.size = 14;
 Chart.defaults.color = '#374151';
 
-// Paleta de cores
+// Color palette
 const colors = {
     primary: '#0FA3B1',
     secondary: '#F39C12',
@@ -15,7 +15,7 @@ const colors = {
     danger: '#dc2626'
 };
 
-// Dados dos gráficos
+// Chart data
 const chartData = {
     ondeProcuram: {
         labels: ['Indicação', 'Google', 'WhatsApp', 'Facebook', 'OLX', 'GetNinjas', 'Instagram', 'Parcerias'],
@@ -65,7 +65,7 @@ const chartData = {
     }
 };
 
-// Função para criar gráfico de barras horizontais
+// Function to create a horizontal bar chart
 function createHorizontalBarChart(canvasId, data, title) {
     const ctx = document.getElementById(canvasId);
     if (!ctx) return;
@@ -141,7 +141,7 @@ function createHorizontalBarChart(canvasId, data, title) {
     });
 }
 
-// Função para criar gráfico de pizza
+// Function to create a pie chart
 function createPieChart(canvasId, data, title) {
     const ctx = document.getElementById(canvasId);
     if (!ctx) return;
@@ -190,7 +190,7 @@ function createPieChart(canvasId, data, title) {
     });
 }
 
-// Função para criar gráfico de barras verticais (custos setup)
+// Function to create a vertical bar chart (setup costs)
 function createVerticalBarChart(canvasId, data, title) {
     const ctx = document.getElementById(canvasId);
     if (!ctx) return;
@@ -200,7 +200,7 @@ function createVerticalBarChart(canvasId, data, title) {
         data: {
             labels: data.labels,
             datasets: [{
-                label: 'Valor (R$)',
+                label: 'Value (R$)',
                 data: data.data,
                 backgroundColor: data.colors,
                 borderColor: data.colors,
@@ -227,7 +227,7 @@ function createVerticalBarChart(canvasId, data, title) {
                     callbacks: {
                         label: function(context) {
                             const range = data.ranges[context.dataIndex];
-                            return [`R$ ${context.parsed.y.toLocaleString('pt-BR')}`, `Faixa: ${range}`];
+                            return [`R$ ${context.parsed.y.toLocaleString('pt-BR')}`, `Range: ${range}`];
                         }
                     }
                 }
@@ -265,7 +265,7 @@ function createVerticalBarChart(canvasId, data, title) {
     });
 }
 
-// Função para criar gráfico do funil
+// Function to create the funnel chart
 function createFunnelChart(canvasId, data, title) {
     const ctx = document.getElementById(canvasId);
     if (!ctx) return;
@@ -275,7 +275,7 @@ function createFunnelChart(canvasId, data, title) {
         data: {
             labels: data.labels,
             datasets: [{
-                label: 'Quantidade',
+                label: 'Quantity',
                 data: data.data,
                 backgroundColor: data.colors,
                 borderColor: data.colors,
@@ -301,7 +301,7 @@ function createFunnelChart(canvasId, data, title) {
                     displayColors: false,
                     callbacks: {
                         label: function(context) {
-                            return `${context.parsed.y} unidades`;
+                            return `${context.parsed.y} units`;
                         }
                     }
                 }
@@ -338,33 +338,33 @@ function createFunnelChart(canvasId, data, title) {
     });
 }
 
-// Função para inicializar todos os gráficos
+// Function to initialize all charts
 function initializeCharts() {
-    // Aguardar o DOM carregar completamente
+    // Wait for the DOM to be fully loaded
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', initializeCharts);
         return;
     }
 
-    // Gráficos de barras horizontais
-    createHorizontalBarChart('onde-procuram-chart', chartData.ondeProcuram, 'Onde Procuram Primeiro (%)');
-    createHorizontalBarChart('confianca-chart', chartData.confianca, 'Nível de Confiança (1-10)');
-    createHorizontalBarChart('conversao-chart', chartData.conversao, 'Taxa de Conversão (%)');
-    createHorizontalBarChart('cpl-chart', chartData.cpl, 'Custo por Lead (R$)');
+    // Horizontal bar charts
+    createHorizontalBarChart('onde-procuram-chart', chartData.ondeProcuram, 'Where Customers Look First (%)');
+    createHorizontalBarChart('confianca-chart', chartData.confianca, 'Trust Level by Channel (1-10)');
+    createHorizontalBarChart('conversao-chart', chartData.conversao, 'Conversion Rate by Channel (%)');
+    createHorizontalBarChart('cpl-chart', chartData.cpl, 'Cost Per Lead (R$)');
 
-    // Gráficos de pizza para orçamentos
+    // Pie charts for budgets
     createPieChart('budget-solo-chart', chartData.budgetSolo, 'Solo Starter');
     createPieChart('budget-growth-chart', chartData.budgetGrowth, 'Growth Accelerator');
     createPieChart('budget-dominance-chart', chartData.budgetDominance, 'Dominance');
 
-    // Gráfico de custos pontuais
-    createVerticalBarChart('setup-costs-chart', chartData.setupCosts, 'Custos Pontuais de Setup');
+    // One-time setup costs chart
+    createVerticalBarChart('setup-costs-chart', chartData.setupCosts, 'One-Time Setup Costs');
 
-    // Gráfico do funil
-    createFunnelChart('funil-chart', chartData.funil, 'Funil de Vendas');
+    // Sales funnel chart
+    createFunnelChart('funil-chart', chartData.funil, 'Sales Funnel');
 }
 
-// Função para redimensionar gráficos quando a janela muda de tamanho
+// Function to handle window resize
 function handleResize() {
     Chart.helpers.each(Chart.instances, function(instance) {
         instance.resize();
@@ -374,6 +374,6 @@ function handleResize() {
 // Event listeners
 window.addEventListener('resize', handleResize);
 
-// Inicializar gráficos
-initializeCharts();
+// Initialize charts
+// initializeCharts();
 

@@ -1,13 +1,13 @@
-// Configurações principais
+// Main settings
 const CONFIG = {
-    whatsappNumber: '5513999999999', // Número do WhatsApp (deve ser alterado pelo cliente)
+    whatsappNumber: '5513999999999', // WhatsApp number (should be changed by the client)
     whatsappMessage: 'Olá! Vi o Plano de Marketing Local e gostaria de implementar em 7 dias. Vamos conversar?',
     qrCodeSize: 150,
     animationDuration: 1000
 };
 
-// Classe principal da aplicação
-class PedreiroCarlosWebsite {
+// Main application class
+class MarketingPlanWebsite {
     constructor() {
         this.init();
     }
@@ -19,11 +19,16 @@ class PedreiroCarlosWebsite {
         this.setupSmoothScrolling();
         this.handleFixedCTAVisibility();
         this.addInteractiveElements();
+
+        // Initialize charts after the main setup
+        if (typeof initializeCharts === 'function') {
+            initializeCharts();
+        }
     }
 
-    // Configurar event listeners
+    // Set up event listeners
     setupEventListeners() {
-        // Botões WhatsApp
+        // WhatsApp buttons
         const whatsappButtons = [
             'whatsapp-btn',
             'hero-whatsapp',
@@ -40,7 +45,7 @@ class PedreiroCarlosWebsite {
             }
         });
 
-        // Botão de download PDF
+        // PDF download button
         const downloadBtn = document.getElementById('download-pdf');
         if (downloadBtn) {
             downloadBtn.addEventListener('click', () => {
@@ -48,7 +53,7 @@ class PedreiroCarlosWebsite {
             });
         }
 
-        // Scroll suave para links internos
+        // Smooth scroll for internal links
         document.querySelectorAll('a[href^="#"]').forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -60,18 +65,18 @@ class PedreiroCarlosWebsite {
             });
         });
 
-        // Redimensionamento da janela
+        // Window resize
         window.addEventListener('resize', () => {
             this.handleResize();
         });
 
-        // Scroll da página
+        // Page scroll
         window.addEventListener('scroll', () => {
             this.handleScroll();
         });
     }
 
-    // Gerar QR Code para WhatsApp
+    // Generate QR Code for WhatsApp
     generateQRCode() {
         const qrCanvas = document.getElementById('qr-code');
         if (!qrCanvas || typeof QRCode === 'undefined') return;
@@ -89,8 +94,8 @@ class PedreiroCarlosWebsite {
             errorCorrectionLevel: 'M'
         }, (error) => {
             if (error) {
-                console.error('Erro ao gerar QR Code:', error);
-                // Fallback: mostrar texto
+                console.error('Error generating QR Code:', error);
+                // Fallback: show text
                 qrCanvas.style.display = 'none';
                 const fallback = document.createElement('div');
                 fallback.innerHTML = `
@@ -106,49 +111,49 @@ class PedreiroCarlosWebsite {
         });
     }
 
-    // Obter URL do WhatsApp
+    // Get WhatsApp URL
     getWhatsAppURL() {
         const message = encodeURIComponent(CONFIG.whatsappMessage);
         return `https://wa.me/${CONFIG.whatsappNumber}?text=${message}`;
     }
 
-    // Abrir WhatsApp
+    // Open WhatsApp
     openWhatsApp() {
         const url = this.getWhatsAppURL();
         
-        // Tentar abrir no app primeiro (mobile)
+        // Try to open in the app first (mobile)
         if (this.isMobile()) {
             window.location.href = url;
         } else {
-            // Desktop: abrir em nova aba
+            // Desktop: open in a new tab
             window.open(url, '_blank');
         }
 
-        // Analytics/tracking (opcional)
+        // Analytics/tracking (optional)
         this.trackEvent('whatsapp_click', {
             source: 'website',
-            page: 'plano_marketing'
+            page: 'marketing_plan'
         });
     }
 
-    // Verificar se é dispositivo móvel
+    // Check if it's a mobile device
     isMobile() {
         return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     }
 
-    // Download PDF (usar funcionalidade de impressão)
+    // Download PDF (use print functionality)
     downloadPDF() {
-        // Adicionar classe para impressão
+        // Add a class for printing
         document.body.classList.add('printing');
         
-        // Configurar título do documento
+        // Set document title for printing
         const originalTitle = document.title;
         document.title = 'Plano de Marketing Local - Pedreiro Carlos - Itanhaém SP';
         
-        // Imprimir
+        // Print
         window.print();
         
-        // Restaurar após impressão
+        // Restore after printing
         setTimeout(() => {
             document.body.classList.remove('printing');
             document.title = originalTitle;
@@ -156,13 +161,13 @@ class PedreiroCarlosWebsite {
 
         this.trackEvent('pdf_download', {
             source: 'website',
-            page: 'plano_marketing'
+            page: 'marketing_plan'
         });
     }
 
-    // Configurar animações de scroll
+    // Set up scroll animations
     setupScrollAnimations() {
-        // Intersection Observer para animações
+        // Intersection Observer for animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -176,7 +181,7 @@ class PedreiroCarlosWebsite {
             });
         }, observerOptions);
 
-        // Observar elementos animáveis
+        // Observe animatable elements
         const animatableElements = document.querySelectorAll(`
             .summary-card,
             .insight-card,
@@ -195,24 +200,24 @@ class PedreiroCarlosWebsite {
         });
     }
 
-    // Configurar scroll suave
+    // Set up smooth scrolling
     setupSmoothScrolling() {
-        // Adicionar CSS para scroll suave se não estiver definido
+        // Add CSS for smooth scrolling if not already defined
         if (!document.documentElement.style.scrollBehavior) {
             document.documentElement.style.scrollBehavior = 'smooth';
         }
     }
 
-    // Scroll suave para elemento específico
+    // Smooth scroll to a specific element
     smoothScrollTo(element) {
-        const offsetTop = element.offsetTop - 80; // Compensar header fixo
+        const offsetTop = element.offsetTop - 80; // Offset for fixed header
         window.scrollTo({
             top: offsetTop,
             behavior: 'smooth'
         });
     }
 
-    // Controlar visibilidade do CTA fixo
+    // Control visibility of the fixed CTA
     handleFixedCTAVisibility() {
         const fixedCTA = document.getElementById('fixed-cta');
         const finalCTA = document.getElementById('cta-final');
@@ -222,11 +227,11 @@ class PedreiroCarlosWebsite {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    // Ocultar CTA fixo quando CTA final está visível
+                    // Hide fixed CTA when final CTA is visible
                     fixedCTA.style.opacity = '0';
                     fixedCTA.style.pointerEvents = 'none';
                 } else {
-                    // Mostrar CTA fixo quando CTA final não está visível
+                    // Show fixed CTA when final CTA is not visible
                     fixedCTA.style.opacity = '1';
                     fixedCTA.style.pointerEvents = 'auto';
                 }
@@ -236,19 +241,19 @@ class PedreiroCarlosWebsite {
         observer.observe(finalCTA);
     }
 
-    // Adicionar elementos interativos
+    // Add interactive elements
     addInteractiveElements() {
-        // Hover effects para cards
+        // Hover effects for cards
         this.addHoverEffects();
         
-        // Tooltips para gráficos
+        // Tooltips for charts
         this.addTooltips();
         
-        // Contador animado para números
+        // Animated counter for numbers
         this.addCounterAnimations();
     }
 
-    // Efeitos de hover
+    // Hover effects
     addHoverEffects() {
         const cards = document.querySelectorAll(`
             .summary-card,
@@ -272,7 +277,7 @@ class PedreiroCarlosWebsite {
         });
     }
 
-    // Tooltips informativos
+    // Informational tooltips
     addTooltips() {
         const tooltipElements = document.querySelectorAll('[data-tooltip]');
         
@@ -287,7 +292,7 @@ class PedreiroCarlosWebsite {
         });
     }
 
-    // Mostrar tooltip
+    // Show tooltip
     showTooltip(element, text) {
         const tooltip = document.createElement('div');
         tooltip.className = 'custom-tooltip';
@@ -318,7 +323,7 @@ class PedreiroCarlosWebsite {
         this.currentTooltip = tooltip;
     }
 
-    // Ocultar tooltip
+    // Hide tooltip
     hideTooltip() {
         if (this.currentTooltip) {
             this.currentTooltip.style.opacity = '0';
@@ -331,7 +336,7 @@ class PedreiroCarlosWebsite {
         }
     }
 
-    // Animações de contador
+    // Counter animations
     addCounterAnimations() {
         const counters = document.querySelectorAll('.counter');
         
@@ -352,7 +357,7 @@ class PedreiroCarlosWebsite {
         });
     }
 
-    // Animar contador
+    // Animate counter
     animateCounter(element, target, duration) {
         let start = 0;
         const increment = target / (duration / 16);
@@ -368,22 +373,22 @@ class PedreiroCarlosWebsite {
         }, 16);
     }
 
-    // Manipular scroll da página
+    // Handle page scroll
     handleScroll() {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         
-        // Parallax effect para hero
+        // Parallax effect for hero section
         const hero = document.querySelector('.hero-section');
         if (hero) {
             const parallaxSpeed = 0.5;
             hero.style.transform = `translateY(${scrollTop * parallaxSpeed}px)`;
         }
 
-        // Mostrar/ocultar botão de voltar ao topo
+        // Show/hide back-to-top button
         this.toggleBackToTop(scrollTop);
     }
 
-    // Toggle botão voltar ao topo
+    // Toggle back-to-top button
     toggleBackToTop(scrollTop) {
         let backToTopBtn = document.getElementById('back-to-top');
         
@@ -400,7 +405,7 @@ class PedreiroCarlosWebsite {
         }
     }
 
-    // Criar botão voltar ao topo
+    // Create back-to-top button
     createBackToTopButton() {
         const button = document.createElement('button');
         button.id = 'back-to-top';
@@ -443,14 +448,14 @@ class PedreiroCarlosWebsite {
         return button;
     }
 
-    // Manipular redimensionamento
+    // Handle window resize
     handleResize() {
-        // Reposicionar tooltips se existirem
+        // Reposition tooltips if they exist
         if (this.currentTooltip) {
             this.hideTooltip();
         }
 
-        // Regenerar QR code se necessário
+        // Regenerate QR code if necessary
         if (window.innerWidth < 768) {
             CONFIG.qrCodeSize = 120;
         } else {
@@ -458,18 +463,18 @@ class PedreiroCarlosWebsite {
         }
     }
 
-    // Tracking de eventos (para analytics)
+    // Event tracking (for analytics)
     trackEvent(eventName, properties = {}) {
-        // Implementar tracking aqui (Google Analytics, etc.)
+        // Implement tracking here (e.g., Google Analytics)
         console.log('Event tracked:', eventName, properties);
         
-        // Exemplo para Google Analytics 4
+        // Example for Google Analytics 4
         if (typeof gtag !== 'undefined') {
             gtag('event', eventName, properties);
         }
     }
 
-    // Utilitários
+    // Utilities
     debounce(func, wait) {
         let timeout;
         return function executedFunction(...args) {
@@ -496,7 +501,7 @@ class PedreiroCarlosWebsite {
     }
 }
 
-// CSS para animações
+// CSS for animations
 const animationCSS = `
     .animate-ready {
         opacity: 0;
@@ -529,22 +534,15 @@ const animationCSS = `
     }
 `;
 
-// Adicionar CSS ao documento
+// Add CSS to the document
 const styleSheet = document.createElement('style');
 styleSheet.textContent = animationCSS;
 document.head.appendChild(styleSheet);
 
-// Inicializar aplicação quando o DOM estiver pronto
-document.addEventListener('DOMContentLoaded', () => {
-    new PedreiroCarlosWebsite();
-});
-
-// Fallback para browsers mais antigos
+// Initialize the application
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-        new PedreiroCarlosWebsite();
-    });
+    document.addEventListener('DOMContentLoaded', () => new MarketingPlanWebsite());
 } else {
-    new PedreiroCarlosWebsite();
+    new MarketingPlanWebsite();
 }
 
